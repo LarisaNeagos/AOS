@@ -1,4 +1,4 @@
-package com.unitbv.lab.lab5.persistence.model;
+package com.unitbv.lab.tema2.persistence.model;
 
 import java.io.Serializable;
 

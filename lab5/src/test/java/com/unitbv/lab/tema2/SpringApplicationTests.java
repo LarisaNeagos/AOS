@@ -1,4 +1,4 @@
-/*package com.unitbv.lab.lab5;
+package com.unitbv.lab.tema2;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,10 +7,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Lab5ApplicationTests {
+public class SpringApplicationTests {
 
 	@Test
 	public void contextLoads() {
 	}
 
-}*/
+}

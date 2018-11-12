@@ -1,4 +1,4 @@
-package com.unitbv.lab.lab5.controller;
+package com.unitbv.lab.tema2.controller;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.unitbv.lab.lab5.persistence.model.Person;
-import com.unitbv.lab.lab5.persistence.repository.PersonRepository;
+import com.unitbv.lab.tema2.persistence.model.Person;
+import com.unitbv.lab.tema2.persistence.repository.PersonRepository;
 
 @Controller
 public class PersonController {

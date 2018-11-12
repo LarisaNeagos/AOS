@@ -1,12 +1,12 @@
-package com.unitbv.lab.lab5;
+package com.unitbv.lab.tema2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Lab5Application {
+public class SpringBootApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Lab5Application.class, args);
+		SpringApplication.run(SpringBootApp.class, args);
 	}
 }
