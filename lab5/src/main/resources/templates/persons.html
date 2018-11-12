@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head xmlns:th="http://www.thymeleaf.org">
+	<title>Person</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
+		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
+		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
+		.tg .tg-4eph{background-color:#f9f9f9}
+	</style>
+	<script type="text/javascript">
+	   function onEdit(id, firstName, lastName, age) {
+		    document.getElementById('id').value = id; 
+	    	document.getElementById('firstName').value = firstName; 
+	    	document.getElementById('lastName').value = lastName; 
+	    	document.getElementById('age').value = age; 
+	    }
+	    
+	    function reset() {
+	    	alert('resetting');
+	    	document.getElementById('firstName').value = ""; 
+	    	document.getElementById('lastName').value = ""; 
+	    	document.getElementById('age').value = ""; 
+	    	document.getElementById('id').value = "";
+	    }
+	  </script>	
+</head>
+
+<body>
+<h2>
+	Add a Person
+</h2>
+
+<form action="#" th:action="@{/add}" th:object="${person}" method="post">
+    	<p>Firstname: <input type="text" id="firstName" th:field="*{firstName}" /></p>
+        <p>Lastname: <input type="text" id="lastName" th:field="*{lastName}" /></p>
+        <p>Age: <input type="text" id="age" th:field="*{age}" /></p>
+        <p><input type="hidden" id="id" th:field="*{id}" /></p>
+        <p><input type="submit" value="Submit" /> 
+        <input type="button" name="clear" value="Clear" onclick="javascript:reset();"/>
+        </p>
+</form>
+
+<br></br>
+
+<div th:if="${not #lists.isEmpty(persons)}">
+<h3>Persons List</h3>
+
+	<table class="tg">
+	<tr>
+		<th width="80">Id</th>
+		<th width="120">First Name</th>
+		<th width="120">Last Name</th>
+		<th width="120">Age</th>
+		<th width="60">Edit</th>
+		<th width="60">Delete</th>
+	</tr>
+	<tr th:each="person : ${#lists.sort(persons)}">
+	        <td th:text="${person.id}"></td>
+	        <td th:text="${person.firstName}"></td>
+	        <td th:text="${person.lastName}"></td>
+	        <td th:text="${person.age}"></td>
+			<td><a th:href ="'javascript:onEdit(\'' + ${person.id} +'\',\''+ ${person.firstName} + '\',\''+ ${person.lastName} + '\',\''+ ${person.age} + '\');'">Edit</a></td>
+			<td><a th:href = "@{/delete(id=${person.id})}" >Delete</a></td>	
+			       
+	</tr>	
+	</table>
+</div>
+
+</body>
+</html>

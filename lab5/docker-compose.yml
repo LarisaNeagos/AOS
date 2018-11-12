@@ -1,0 +1,23 @@
+version: "2.3"
+services:     
+  mysql-docker-container:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_DATABASE=tema2
+      - MYSQL_USER=larisa
+      - MYSQL_PASSWORD=pass
+    volumes:
+    - /data/mysql
+    - "/src/main/resources/dbscripts:/docker-entrypoint-initdb.d"
+  spring-boot-jpa-app:
+    image: springboot
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql-docker-container
+    ports:
+      - 8080:8080
+    volumes:
+      - /data/spring-boot-app
