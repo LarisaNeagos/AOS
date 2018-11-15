@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "person")
-public class Person implements Serializable, Comparable<Person>{
+public class Person implements Serializable, Comparable<Person> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -20,28 +20,29 @@ public class Person implements Serializable, Comparable<Person>{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
 	private Long id;
-	
+
 	/** The first name. */
 	@Column(name = "firstName", nullable = false)
 	private String firstName;
-	
+
 	/** The last name. */
 	@Column(name = "lastName")
 	private String lastName;
-	
-	/** The street number. */
+
+	/** The age. */
 	@Column(name = "age")
 	private int age;
 
-	public Person () {}
-	
+	public Person() {
+	}
+
 	public Person(String firstName, String lastName, int age) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
 	}
-	
+
 	public Person(Long id, String firstName, String lastName, int age) {
 		super();
 		this.id = id;
@@ -104,7 +105,6 @@ public class Person implements Serializable, Comparable<Person>{
 		this.lastName = lastName;
 	}
 
-
 	/**
 	 * Gets the age.
 	 *
@@ -125,10 +125,8 @@ public class Person implements Serializable, Comparable<Person>{
 
 	@Override
 	public int compareTo(Person p) {
-		// TODO Auto-generated method stub
 		return new Long(this.id).compareTo(p.getId());
 	}
-
 
 	@Override
 	public String toString() {

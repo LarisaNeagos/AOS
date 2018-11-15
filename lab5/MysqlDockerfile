@@ -1,0 +1,2 @@
+FROM mysql/mysql-server
+ADD  /src/main/resources/dbscripts /docker-entrypoint-initdb.d/

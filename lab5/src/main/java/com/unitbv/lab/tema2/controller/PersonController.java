@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,17 +54,7 @@ public class PersonController {
 		m.addAttribute("persons", persons);
 		return "persons";
 	}
-	
-	@GetMapping("/add")
-	public String findAllPersons(Model model) {
-		 System.out.println(" findAllPersons in db ");
-		model.addAttribute("contact", new Person());
-		List<Person> persons = personRepository.findAll();
-		System.out.println(" persons = "+ persons.size());
-		model.addAttribute("persons", persons);
-		return "persons";
-	}
-	
+		
 	/**
 	 * Edits the person.
 	 *
@@ -85,6 +74,12 @@ public class PersonController {
 
 		return "person";
 	}
+	
+	/**
+	 * Finds all persons.
+	 *
+	 * @return the persons
+	 */
 
 	@RequestMapping("/findAll")
 	public String findAll(Model model) {
